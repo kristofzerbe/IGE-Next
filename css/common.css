@@ -1,0 +1,10 @@
+body {
+    background-color: var(--brand-1);
+    color: #fff;
+}
+header {
+    height: 25vh;
+}
+main {
+    height: 75vh;
+}

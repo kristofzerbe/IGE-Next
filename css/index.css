@@ -1,0 +1,62 @@
+@import url("style.css");
+
+/* Variables */
+:root {
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+section {
+    height: 50%;
+    width: 100vw;
+}
+section#hr {
+    background-color: var(--brand-hr);
+}
+section#ga {
+    background-color: var(--brand-ga);
+}
+section a {
+    text-decoration: none;
+}
+section img {
+    width: 200px;
+    margin: 10% auto 0;
+    display: block;
+    background-color: #fff;
+    border-radius: 50%;
+}
+section h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 3rem auto;
+    padding: 1rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+@media (min-width: 920px) {
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+    section {
+        height: 100vh;
+        width: 50%;
+    }
+    section img {
+        width: 300px;
+        margin-top: 20%;
+    }
+}

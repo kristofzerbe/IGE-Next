@@ -1,0 +1,11 @@
+@import url("style.css");
+@import url("common.css");
+
+/* Variables */
+:root {
+    --brand-1: hsl(229, 74%, 34%);
+    --brand-2: hsl(229, 74%, 49%);
+    --brand-3: hsl(229, 74%, 64%);
+    --brand-4: hsl(229, 74%, 79%);
+    --brand-5: hsl(227, 74%, 94%);
+}

@@ -9,6 +9,28 @@
     --brand-5: hsl(3, 90%, 94%);
 }
 
+body {
+    background-image: url("../images/background-ga-768.jpg");
+}
 nav a.logo { 
-    background-image: url("../images/logo-red-120.png");
+    background-image: url("../images/logo-red-100.png");
+}
+
+@media (min-width: 768px) { /* MEDIUM */
+    body {
+        background-image: url("../images/background-ga-992.jpg");
+    }
+    nav a.logo { 
+        background-image: url("../images/logo-red-120.png");
+    }
+}
+@media (min-width: 992px) { /* LARGE */
+    body {
+        background-image: url("../images/background-ga-1200.jpg");
+    }
+}
+@media (min-width: 1200px) { /* XLARGE */ 
+    body {
+        background-image: url("../images/background-ga-1600.jpg");
+    }
 }

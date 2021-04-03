@@ -4,8 +4,8 @@
 :root {
     --height-header: 50px;
     --height-footer: 100px;
-    --height-nav: 100px;
-    --height-logo: 120px;
+    --height-nav: 80px;
+    --height-logo: 100px;
 }
 
 body {
@@ -22,7 +22,6 @@ body {
         "footer";
 
     background-color: var(--gray-3);
-    background-image: url("../images/background-ga-768.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -40,7 +39,7 @@ header {
     transition: var(--transition-default);
 }
 body.scrolled nav {
-    box-shadow: 0 30px 30px -40px #000;
+    box-shadow: 0 30px 30px -36px #000;
 }
 nav { 
     grid-area: nav;
@@ -119,6 +118,10 @@ nav, main, aside {
 }
 
 @media (min-width: 768px) { /* MEDIUM */
+    :root {
+        --height-nav: 100px;
+        --height-logo: 120px;
+    }
     body {
         grid-template-columns: 250px 1fr;
         grid-template-rows: minmax(min-content, var(--height-header)) 1fr min-content minmax(min-content, var(--height-footer));
@@ -127,7 +130,6 @@ nav, main, aside {
             "nav main"
             "nav aside"
             "footer footer";
-        background-image: url("../images/background-ga-992.jpg");
     }
     header {
         z-index: 1;
@@ -154,6 +156,9 @@ nav, main, aside {
     main { 
         margin-top: var(--height-header);
     }
+    aside {
+        padding: 1rem 1rem 1rem 0;
+    }
 }
 @media (min-width: 992px) { /* LARGE */
     body {
@@ -163,7 +168,6 @@ nav, main, aside {
             "header header header"
             "nav main aside"
             "footer footer footer";
-        background-image: url("../images/background-ga-1200.jpg");
     }
     nav { 
         width: 200px;
@@ -171,11 +175,14 @@ nav, main, aside {
     main, aside { 
         margin-top: var(--height-header);
     }
+    aside {
+        padding: 1rem;
+    }
 }
 @media (min-width: 1200px) { /* XLARGE */ 
     body {
         grid-template-columns: minmax(min-content, 30%) 1fr minmax(min-content, 250px);
-        background-image: url("../images/background-ga-1600.jpg");
+        
     }
     nav { 
         width: 220px;

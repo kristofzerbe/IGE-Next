@@ -1,4 +1,3 @@
-@import url("style.css");
 @import url("common.css");
 
 /* Variables */
@@ -8,4 +7,8 @@
     --brand-3: hsl(3, 90%, 64%);
     --brand-4: hsl(3, 90%, 84%);
     --brand-5: hsl(3, 90%, 94%);
+}
+
+nav a.logo { 
+    background-image: url("../images/logo-red-120.png");
 }

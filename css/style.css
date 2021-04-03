@@ -1,7 +1,6 @@
 /* Variables */
 :root {
     --brand-hr: hsl(229, 74%, 34%);
-
     --brand-ga: hsl(3, 90%, 24%);
 
     --beige-1: hsl(35, 43%, 44%);
@@ -16,12 +15,17 @@
     --gray-4: hsl(60, 0%, 79%);
     --gray-5: hsl(60, 0%, 94%);
 
+    --white: hsla(0, 0%, 100%, 1);
+    --white-backdrop: hsla(0, 0%, 100%, 0.75);
+
     --font-default: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+
+    --transition-default: all 0.3s ease;
 }
 
 body {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     margin: 0;
     padding: 0;
     color: var(--gray-primary);

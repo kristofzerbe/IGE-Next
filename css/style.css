@@ -15,6 +15,7 @@
     --gray-4: hsl(60, 0%, 79%);
     --gray-5: hsl(60, 0%, 94%);
 
+    --black: hsl(0, 0%, 0%);
     --white: hsla(0, 0%, 100%, 1);
     --white-backdrop: hsla(0, 0%, 100%, 0.75);
 
@@ -22,7 +23,9 @@
 
     --transition-default: all 0.3s ease;
 }
-
+html {
+    font-size: 15px;
+}
 body {
     height: 100vh;
     width: 100vw;
@@ -30,6 +33,5 @@ body {
     padding: 0;
     color: var(--gray-primary);
     font-family: var(--font-default);
-    font-size: 1rem;
     line-height: 1.5rem;
 }

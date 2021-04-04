@@ -4,10 +4,40 @@
 :root {
     --height-header: 50px;
     --height-footer: 100px;
-    --height-nav: 80px;
+    --height-nav: 120px;
     --height-logo: 100px;
 }
 
+/* Elements */
+a {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: transparent;
+    text-underline-offset: .25rem;
+    text-decoration-style: wavy;
+    transition: var(--transition-default);
+}
+a:hover {
+    color: var(--beige-1);
+    text-decoration-color: var(--beige-1);
+}
+a,
+main h1, main h2, main h3, main h4, main h5 {
+    color: var(--brand-1);
+}
+h1 {
+    font-size: 1.6rem;
+}
+h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.8rem;
+}
+section {
+    overflow: auto;;
+}
+
+/* Structure */
 body {
     width: auto;
     display: grid;
@@ -21,7 +51,7 @@ body {
         "aside"
         "footer";
 
-    background-color: var(--gray-3);
+    background-color: var(--white);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -32,14 +62,24 @@ header {
     min-height: var(--height-header);
     z-index: 1;
     background-color: var(--white);
+    border-top: 10px var(--brand-1) solid;
+    box-sizing: border-box;
+    padding: 0 1rem;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     transition: var(--transition-default);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
 }
-body.scrolled nav {
-    box-shadow: 0 30px 30px -36px #000;
+header a {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 0.5rem;
 }
 nav { 
     grid-area: nav;
@@ -51,15 +91,56 @@ nav {
     position: fixed;
     top: var(--height-header);
 }
+body.scrolled nav {
+    box-shadow: 0 30px 30px -36px #000;
+}
+nav, main, aside {
+    color: var(--gray-1);
+}
+nav {
+    display: flex;
+    flex-direction: column;
+}
 nav a.logo {
-    position: absolute;
-    top: -35px;
-    left: 5px;
     width: var(--height-logo);
     height: var(--height-logo);
+    padding-bottom: 1rem;
     background-repeat: no-repeat;
     background-size: var(--height-logo);
     background-position: 50% 0;
+    background-color: var(--white);
+}
+nav ul#menu {
+    margin: 0;
+	padding: 0;
+	list-style: none;
+}
+nav ul#menu:after {
+    content: "";
+    display: block;
+    height: 1.25rem;
+    background-color: var(--white);
+}
+nav ul#menu li {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--white);
+    transition: var(--transition-default);
+}
+nav ul#menu li:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+nav ul#menu li a {
+    text-decoration: none;
+    display: block;
+}
+nav ul#menu li a svg {
+    float: right;
+    margin-top: 2px;
+    color: var(--gray-4)
+}
+nav ul#menu li:hover a {
+    color: inherit;
 }
 main {
     margin-top: calc(var(--height-header) + var(--height-nav));
@@ -81,15 +162,33 @@ main:before {
     z-index: -1;
     background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1));
 }
+main section:first-child {
+    margin-top: -1rem;
+}
+main section:not(:first-child) {
+    border-top: 1px var(--beige-4) solid;
+    margin: 1rem auto;
+    padding: 1rem 0;
+}
 aside { 
     grid-area: aside; 
     padding: 1rem;
-    /* background-color: var(--white); */
+    display: flex;
+    flex-direction: column;
 }
 aside section {
     background-color: var(--white);
     box-shadow: 0 0 60px -20px #000;
-    padding: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+}
+aside section h3 {
+    margin: 0;
+}
+aside section a.more {
+    float: right;
 }
 footer { 
     grid-area: footer; 
@@ -98,12 +197,8 @@ footer {
     min-height: 100px;
 }
 
-nav, main, aside {
-    color: var(--gray-1);
-}
-
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
-    main, aside section { 
+    main, nav, aside section { 
         background-color: var(--white-backdrop);
         backdrop-filter: blur(10px) contrast(90%);    
     }
@@ -141,9 +236,8 @@ nav, main, aside {
         position: fixed;
         top: 50px;
         left: 0;
-        width: 180px;
-        min-height: 400px;
-        margin: 0 40px 0 20px;
+        width: 200px;
+        margin: -25px 40px 0 20px;
     }
     nav, body.scrolled nav {
         box-shadow: 20px 60px 60px -30px #000;
@@ -155,6 +249,7 @@ nav, main, aside {
     }
     main { 
         margin-top: var(--height-header);
+        margin-right: 1rem;
     }
     aside {
         padding: 1rem 1rem 1rem 0;
@@ -169,8 +264,8 @@ nav, main, aside {
             "nav main aside"
             "footer footer footer";
     }
-    nav { 
-        width: 200px;
+    main {
+        margin-right: 0;
     }
     main, aside { 
         margin-top: var(--height-header);

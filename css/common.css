@@ -4,8 +4,7 @@
 :root {
     --height-header: 50px;
     --height-footer: 100px;
-    --height-nav: 120px;
-    --height-logo: 100px;
+    --height-nav: 80px;
 }
 
 /* Elements */
@@ -59,7 +58,7 @@ body {
 }
 header { 
     grid-area: header; 
-    min-height: var(--height-header);
+    height: var(--height-header);
     z-index: 1;
     background-color: var(--white);
     border-top: 10px var(--brand-1) solid;
@@ -75,42 +74,49 @@ header {
     flex-wrap: nowrap;
     justify-content: flex-end;
 }
+body[data-scroll] header {
+    box-shadow: 0 15px 30px 0px #000;
+}
 header a {
     display: inline-block;
     font-size: 0.8rem;
     text-transform: uppercase;
     padding: 0.5rem;
 }
+nav, main, aside {
+    color: var(--gray-1);
+}
 nav { 
     grid-area: nav;
     z-index: 1;
     background-color: var(--white);
     transition: var(--transition-default);
-    min-height: var(--height-nav);
+    height: var(--height-nav);
     width: 100%;
     position: fixed;
     top: var(--height-header);
-}
-body.scrolled nav {
-    box-shadow: 0 30px 30px -36px #000;
-}
-nav, main, aside {
-    color: var(--gray-1);
-}
-nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+body[data-scroll] {
+    --height-nav: 30px;
+}
+body[data-scroll] nav a.logo {
+    width: 75px;
+    height: 50px;
+    background-size: 50px;
 }
 nav a.logo {
-    width: var(--height-logo);
-    height: var(--height-logo);
-    padding-bottom: 1rem;
+    margin-top: -30px;
+    width: 125px;
+    height: 100px;
+    background-size: 100px;
     background-repeat: no-repeat;
-    background-size: var(--height-logo);
     background-position: 50% 0;
     background-color: var(--white);
 }
 nav ul#menu {
+    display: none;
     margin: 0;
 	padding: 0;
 	list-style: none;
@@ -122,7 +128,6 @@ nav ul#menu:after {
     background-color: var(--white);
 }
 nav ul#menu li {
-    padding: 0.5rem 1.5rem;
     background-color: var(--white);
     transition: var(--transition-default);
 }
@@ -131,16 +136,21 @@ nav ul#menu li:hover {
     cursor: pointer;
 }
 nav ul#menu li a {
-    text-decoration: none;
+    padding: 0.5rem 1.5rem;
     display: block;
+    text-decoration: none;
+    transition: var(--transition-default);
 }
 nav ul#menu li a svg {
     float: right;
     margin-top: 2px;
     color: var(--gray-4)
 }
-nav ul#menu li:hover a {
-    color: inherit;
+nav ul#menu li a:hover {
+    /* font-weight: 500; */
+}
+nav ul#menu li a:hover svg {
+    color: var(--beige-1)
 }
 main {
     margin-top: calc(var(--height-header) + var(--height-nav));
@@ -150,6 +160,7 @@ main {
     padding: 2rem;
     background-color: var(--white);
     box-shadow: 0 -20px 60px -20px #000;
+    transition: var(--transition-default);
 }
 main:before {
     content: "";
@@ -198,24 +209,15 @@ footer {
 }
 
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
-    main, nav, aside section { 
+    main, aside section { 
         background-color: var(--white-backdrop);
         backdrop-filter: blur(10px) contrast(90%);    
     }
 }
 
-#scroll-anchor {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    top: 10px;
-    left: 0;
-}
-
 @media (min-width: 768px) { /* MEDIUM */
     :root {
         --height-nav: 100px;
-        --height-logo: 120px;
     }
     body {
         grid-template-columns: 250px 1fr;
@@ -229,7 +231,7 @@ footer {
     header {
         z-index: 1;
     }
-    body.scrolled header {
+    body[data-scroll] header {
         box-shadow: 0 0 60px -20px #000;
     }
     nav { 
@@ -237,15 +239,24 @@ footer {
         top: 50px;
         left: 0;
         width: 200px;
-        margin: -25px 40px 0 20px;
+        margin: -20px 40px 0 20px;
+        flex-direction: column;
     }
-    nav, body.scrolled nav {
+    nav, body[data-scroll] nav {
         box-shadow: 20px 60px 60px -30px #000;
     }
     nav a.logo {
+        /* position: static;
         top: 10px;
-        left: 0;
-        width: 100%;    
+        left: 0; */
+        margin-top: 0;
+        height: 120px;
+        width: 100%;
+        background-size: 120px;
+        padding-bottom: 1rem;    
+    }
+    nav ul#menu {
+        display: block;
     }
     main { 
         margin-top: var(--height-header);
@@ -253,6 +264,12 @@ footer {
     }
     aside {
         padding: 1rem 1rem 1rem 0;
+    }
+    @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+        nav { 
+            background-color: var(--white-backdrop);
+            backdrop-filter: blur(10px) contrast(90%);    
+        }
     }
 }
 @media (min-width: 992px) { /* LARGE */

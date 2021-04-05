@@ -16,6 +16,11 @@ nav a.logo {
     background-image: url("../images/logo-red-100.png");
 }
 
+@media (max-width: 767px) { /* SMALL ONLY */
+    body[data-scroll] nav a.logo {
+        background-image: url("../images/logo-red-40.png");
+    }
+}
 @media (min-width: 768px) { /* MEDIUM */
     body {
         background-image: url("../images/background-ga-992.jpg");

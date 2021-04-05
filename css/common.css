@@ -98,14 +98,6 @@ nav {
     display: flex;
     flex-direction: row;
 }
-body[data-scroll] {
-    --height-nav: 30px;
-}
-body[data-scroll] nav a.logo {
-    width: 75px;
-    height: 50px;
-    background-size: 50px;
-}
 nav a.logo {
     margin-top: -30px;
     width: 125px;
@@ -153,7 +145,9 @@ nav ul#menu li a:hover svg {
     color: var(--beige-1)
 }
 main {
-    margin-top: calc(var(--height-header) + var(--height-nav));
+    margin-top: calc(var(--height-header) + var(--height-nav) + 1rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 main { 
     grid-area: main; 
@@ -183,7 +177,7 @@ main section:not(:first-child) {
 }
 aside { 
     grid-area: aside; 
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     display: flex;
     flex-direction: column;
 }
@@ -214,7 +208,20 @@ footer {
         backdrop-filter: blur(10px) contrast(90%);    
     }
 }
-
+@media (max-width: 767px) { /* SMALL ONLY */
+    body[data-scroll] {
+        --height-header: 40px;
+        --height-nav: 20px;
+    }
+    body[data-scroll] header { 
+        border-top-width: 0;
+    }
+    body[data-scroll] nav a.logo {
+        width: 60px;
+        height: 40px;
+        background-size: 40px;
+    }    
+}
 @media (min-width: 768px) { /* MEDIUM */
     :root {
         --height-nav: 100px;
@@ -246,11 +253,8 @@ footer {
         box-shadow: 20px 60px 60px -30px #000;
     }
     nav a.logo {
-        /* position: static;
-        top: 10px;
-        left: 0; */
         margin-top: 0;
-        height: 120px;
+        min-height: 120px;
         width: 100%;
         background-size: 120px;
         padding-bottom: 1rem;    
@@ -260,10 +264,11 @@ footer {
     }
     main { 
         margin-top: var(--height-header);
+        margin-left: 0;
         margin-right: 1rem;
     }
     aside {
-        padding: 1rem 1rem 1rem 0;
+        padding: 1rem 1rem 0 0;
     }
     @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
         nav { 

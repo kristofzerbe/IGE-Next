@@ -25,3 +25,18 @@ function scrollDetect() {
 	}
 }
 scrollDetect();
+
+//========================================
+// https://foxland.fi/simple-accessible-svg-menu-hamburger-animation/
+let menuButton = document.getElementById("menu-toggle");
+menuButton.onclick = function() {
+    if (menuButton.classList.contains("open")) {
+        document.body.className = document.body.classList.remove("menu-open");
+        menuButton.className = menuButton.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+    } else {
+        document.body.classList.add("menu-open");
+        menuButton.classList.add("open");
+        menuButton.setAttribute("aria-expanded", "true");
+    }    
+};

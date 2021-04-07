@@ -2,7 +2,7 @@
 
 /* Variables */
 :root {
-    --height-header: 50px;
+    --height-header: 55px;
     --height-footer: 100px;
     --height-nav: 80px;
 }
@@ -13,7 +13,7 @@ a {
     text-decoration-thickness: 0.1rem;
     text-decoration-color: transparent;
     text-underline-offset: .25rem;
-    text-decoration-style: wavy;
+    text-decoration-style: solid;
     transition: var(--transition-default);
 }
 a:hover {
@@ -23,6 +23,18 @@ a:hover {
 a,
 main h1, main h2, main h3, main h4, main h5 {
     color: var(--brand-1);
+}
+button, input[type="button"] {
+	border: none;
+	border-radius: 0;
+	background: var(--brand-1);
+	color: var(--white);
+    cursor: pointer;
+	display: inline-block;
+	padding: 1em 1.5em;
+	text-transform: uppercase;
+	transition: var(--transition-default);
+    outline: none;
 }
 h1 {
     font-size: 1.6rem;
@@ -61,10 +73,10 @@ header {
     height: var(--height-header);
     z-index: 1;
     background-color: var(--white);
-    border-top: 10px var(--brand-1) solid;
-    box-sizing: border-box;
-    padding: 0 1rem;
+    border-top: 1rem var(--brand-1) solid;
+    padding: 0;
     position: fixed;
+    box-sizing: border-box;
     top: 0;
     left: 0;
     right: 0;
@@ -81,8 +93,51 @@ header a {
     display: inline-block;
     font-size: 0.8rem;
     text-transform: uppercase;
-    padding: 0.5rem;
+    padding: 0.5rem 0.33rem;
+    transition: var(--transition-default);
 }
+header button#menu-toggle {
+    padding: 0 0.75rem;
+    background-color: var(--white);
+    color: var(--brand-1);
+}
+header button#menu-toggle .screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+header button#menu-toggle .icon-menu-toggle {
+	position: relative;
+    display: inline-block;
+	vertical-align: middle;	
+    width: 1.5rem;
+	height: 1.5rem;
+    top: 0;
+	fill: currentColor;
+}
+header button#menu-toggle .svg-menu-toggle .line {
+    opacity: 1;
+    transform: rotate(0) translateY(0) translateX(0);
+    transform-origin: 1rem 1rem;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+header button#menu-toggle .svg-menu-toggle .line-1 {
+    transform-origin: 1rem 2.5rem;
+}
+header button#menu-toggle .svg-menu-toggle .line-3 {
+    transform-origin: 1rem 4.125rem;
+}
+header button#menu-toggle.open .svg-menu-toggle .line-1 {
+    transform: rotate(45deg) translateY(0) translateX(0);
+}
+header button#menu-toggle.open .svg-menu-toggle .line-2 {
+    opacity: 0;
+}
+header button#menu-toggle.open .svg-menu-toggle .line-3 {
+    transform: rotate(-45deg) translateY(0em) translateX(0em);
+}  
 nav, main, aside {
     color: var(--gray-1);
 }
@@ -95,28 +150,46 @@ nav {
     width: 100%;
     position: fixed;
     top: var(--height-header);
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+        "logo title"
+        "menu menu"
 }
 nav a.logo {
+    grid-area: logo;
     margin-top: -30px;
     width: 125px;
     height: 100px;
+    z-index: 1;
     background-size: 100px;
     background-repeat: no-repeat;
     background-position: 50% 0;
+    /* background-color: var(--white); */
+}
+nav strong.title {
+    grid-area: title;
+    z-index: 1;
+    color: var(--brand-1);
     background-color: var(--white);
+    text-align: left;
+    text-transform: uppercase;
+    line-height: 1.25rem;
+    transition: var(--transition-default);
 }
 nav ul#menu {
-    display: none;
-    margin: 0;
+    grid-area: menu;
+    margin: 1rem;
 	padding: 0;
+    z-index: 0;
 	list-style: none;
+    transition: var(--transition-default);
 }
 nav ul#menu:after {
     content: "";
     display: block;
-    height: 1.25rem;
+    height: 1rem;
     background-color: var(--white);
 }
 nav ul#menu li {
@@ -215,12 +288,55 @@ footer {
     }
     body[data-scroll] header { 
         border-top-width: 0;
+        border-left: 1rem var(--brand-1) solid;
+
+    }
+    body[data-scroll] header a { 
+        display: none;
+    }
+    body[data-scroll] header #menu-toggle {
+        margin-top: 15px;    
+    }
+    body[data-scroll] nav {
+        border-left: 1rem var(--brand-1) solid;
     }
     body[data-scroll] nav a.logo {
         width: 60px;
         height: 40px;
         background-size: 40px;
-    }    
+    }
+    nav strong.title {
+        /* margin-top: 1rem; */
+        margin-right: 0;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        align-self: center;
+    }
+    body[data-scroll] nav strong.title {
+        margin-top: -2rem;
+        margin-right: 4rem; 
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+    nav ul#menu {
+        overflow-y: hidden;
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    body.menu-open nav {
+        height: auto;
+        box-shadow: 0 50px 60px -60px #000;
+    } 
+    body.menu-open nav ul#menu {
+        overflow-y: visible;
+        opacity: 1;
+        transform: translateY(0);
+        border-top: 1px var(--beige-5) solid;
+        padding-top: 1rem;  
+    }
+    body[data-scroll] nav ul#menu {
+        margin-left: 0;
+    }
 }
 @media (min-width: 768px) { /* MEDIUM */
     :root {
@@ -237,18 +353,31 @@ footer {
     }
     header {
         z-index: 1;
+        padding: 0 1rem;
+    }
+    header a {
+        padding: 0.5rem 0.75rem;
+    }
+    header button#menu-toggle {
+        display: none;
     }
     body[data-scroll] header {
         box-shadow: 0 0 60px -20px #000;
     }
     nav { 
         position: fixed;
-        top: 50px;
+        top: var(--height-header);
         left: 0;
         width: 200px;
+        height: auto;
         margin: -20px 40px 0 20px;
-        flex-direction: column;
-    }
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 1fr;
+        grid-template-areas:
+            "logo"
+            "title"
+            "menu"
+}
     nav, body[data-scroll] nav {
         box-shadow: 20px 60px 60px -30px #000;
     }
@@ -257,10 +386,16 @@ footer {
         min-height: 120px;
         width: 100%;
         background-size: 120px;
-        padding-bottom: 1rem;    
+        background-color: var(--white);
+        padding-bottom: 0.5rem;    
+    }
+    nav strong.title {
+        text-align: center;
+        padding-bottom: 1.5rem;
     }
     nav ul#menu {
-        display: block;
+        margin: 0;
+        opacity: 1;
     }
     main { 
         margin-top: var(--height-header);

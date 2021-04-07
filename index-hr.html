@@ -15,7 +15,7 @@
         <meta name="msapplication-config" content="/assets/hr/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/index-hr.css">
     </head>
     <body>
@@ -43,16 +43,60 @@
             </button>
         </header>
         <nav>
-            <a class="logo" href="#"></a>
+            <a class="logo" href="index-hr.html"></a>
             <strong class="title">Die Heldenreise</strong>
             <ul id="menu">
-                <li><a href="#">IGE<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a></li>
-                <li><a href="#">Heldenreise<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a></li>
-                <li><a href="#">Große Heldenreise<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a></li>
-                <li><a href="#">Weitere Seminare<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a></li>
-                <li><a href="#">Team<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a></li>
-                <li><a href="#">Programm<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a></li>
-                <li><a href="#">IGE Academy<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a></li>
+                <li data-menu-item="1">
+                    <a href="#">IGE<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a>
+                    <ul>
+                        <li><a href="#/geschichte">Geschichte</a></li>
+                        <li><a href="#/ziele">Ziele</a></li>
+                        <li><a href="#/paul-rebillot">Paul Rebillot</a></li>
+                        <li><a href="#/bibliothek">Bibliothek</a></li>
+                    </ul>
+                </li>
+                <li data-menu-item="2">
+                    <a href="#/heldenreise">Heldenreise</a>
+                </li>
+                <li data-menu-item="3">
+                    <a href="#">Große Heldenreise<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a>
+                    <ul>
+                        <li><a href="#/drei-jahres-gruppe">Dreijahresgruppen</a></li>
+                        <li><a href="#/family-circles">Family Circles</a></li>
+                        <li><a href="#/schatten">Schatten</a></li>
+                        <li><a href="#/lovers-journey">Lover`s Journey</a></li>
+                        <li><a href="#/tod-und-auferstehung">Tod und Auferstehung</a></li>
+                    </ul>
+                </li>
+                <li data-menu-item="4">
+                    <a href="#">Weitere Seminare<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a>
+                    <ul>
+                        <li><a href="#/daemon-du-sollst">Der Dämon “Du sollst”</a></li>
+                        <li><a href="#/fraueninitation">Fraueninitation</a></li>
+                        <li><a href="#/mannerinitation">Männerinitation</a></li>
+                        <li><a href="#/goldene-fliess">Die Suche nach dem goldenen Vlies</a></li>
+                        <li><a href="#/weg-der-ianna">Der Weg der Inanna</a></li>
+                        <li><a href="#/helden-festival">Helden-Festival</a></li>
+                    </ul>
+                </li>
+                <li data-menu-item="5">
+                    <a href="#/team">Team</a>
+                </li>
+                <li data-menu-item="6">
+                    <a href="#">Programm<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a>
+                    <ul>
+                        <li><a href="#/termine">Heldenreisentermine</a></li>
+                        <li><a href="#/weitere-seminare">weitere Seminare</a></li>
+                    </ul></li>
+                <li data-menu-item="7">
+                    <a href="#">IGE Academy<svg aria-hidden="true" width="16" height="16"><use xlink:href="#arrow" /></svg></a>
+                    <ul>
+                        <li><a href="index-ga.html">Gestalttherapie</a></li>
+                        <li><a href="#akademie-tanztherapie">Tanztherapie</a></li>
+                        <li><a href="#akademie-gestalt-coach">Gestaltcoach</a></li>
+                        <li><a href="#akademie-rituelle-gestalttherapie">Rituelle Gestalttherapie</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <main>
@@ -69,7 +113,7 @@
                 </p>
                 <p>
                     Unsere Seminar wenden sich an jedermann und jede Frau. Sie sind auch sehr gut als Fortbildung 
-                    für Psychologen, Therapueten, Lehrer, Trainer, Coaches und weiterer lehrender, beratender und 
+                    für Psychologen, Therapeuten, Lehrer, Trainer, Coaches und weiterer lehrender, beratender und 
                     heilender Berufe geeignet.
                 </p>
             </section>
@@ -102,10 +146,23 @@
             </section>
         </aside>
         <footer>
-            <img class="logo" />
-            <section id="contact"></section>
-            <section id="copyright"></section>
-            <section id="links"></section>
+            <img class="logo" src="images/logo-negative-40.png" />
+            <section id="contact">
+                IGE, Institut für Gestalt und Erfahrung<br>
+                Jörg von Laiming Str. 9</span><br>
+                83123 Amerang<br>
+                <label>Kontakt:</label> <a href="tel:+4980759148388">+49 (0) 8075-914 8388</a><br>
+                <label>E-Mail:</label> <a href="mailto:tz@heldenreise.de">tz@heldenreise.de</a>
+            </section>
+            <section id="copyright">
+                <span>Copyright © IGE 2020.</span> <span>Alle Rechte vorbehalten</span><br>
+                Die Heldenreise® ist eine eingetragene Marke des IGE
+            </section>
+            <section id="links">
+                <a href="#/agb">AGB's</a>
+                <a href="#/datenschutz">Datenschutz</a>
+                <a href="#/impressum">Impressum</a>
+            </section>
         </footer>
         <script src="js/scripts.js"></script>
     </body>

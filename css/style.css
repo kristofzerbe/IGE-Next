@@ -16,10 +16,11 @@
     --gray-5: hsl(60, 0%, 94%);
 
     --black: hsl(0, 0%, 0%);
+    --dark: hsl(0, 0%, 25%);
     --white: hsla(0, 0%, 100%, 1);
     --white-backdrop: hsla(0, 0%, 100%, 0.75);
 
-    --font-default: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    --font-default: 'Roboto', 'Arial', sans-serif;
 
     --transition-default: all 0.3s ease;
 }
@@ -31,7 +32,7 @@ body {
     width: 100vw;
     margin: 0;
     padding: 0;
-    color: var(--gray-primary);
+    color: var(--dark);
     font-family: var(--font-default);
     line-height: 1.5rem;
 }

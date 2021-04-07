@@ -36,13 +36,23 @@ button, input[type="button"] {
 	transition: var(--transition-default);
     outline: none;
 }
+h1, h2, h3, h4, h5, .title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+}
+h1, .title {
+    text-transform: uppercase;
+}
 h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 h2 {
     font-size: 1.3rem;
     font-weight: 400;
     line-height: 1.8rem;
+}
+h3 {
+    font-size: 1.1rem;
 }
 section {
     overflow: auto;;
@@ -138,9 +148,6 @@ header button#menu-toggle.open .svg-menu-toggle .line-2 {
 header button#menu-toggle.open .svg-menu-toggle .line-3 {
     transform: rotate(-45deg) translateY(0em) translateX(0em);
 }  
-nav, main, aside {
-    color: var(--gray-1);
-}
 nav { 
     grid-area: nav;
     z-index: 1;
@@ -175,7 +182,9 @@ nav strong.title {
     background-color: var(--white);
     text-align: left;
     text-transform: uppercase;
+    font-size: 16px;
     line-height: 1.25rem;
+    letter-spacing: 1px;
     transition: var(--transition-default);
 }
 nav ul#menu {
@@ -264,6 +273,7 @@ aside section {
 }
 aside section h3 {
     margin: 0;
+    text-transform: uppercase;
 }
 aside section a.more {
     float: right;
@@ -308,14 +318,14 @@ footer {
     nav strong.title {
         /* margin-top: 1rem; */
         margin-right: 0;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         line-height: 1.75rem;
         align-self: center;
     }
     body[data-scroll] nav strong.title {
         margin-top: -2rem;
         margin-right: 4rem; 
-        font-size: 1rem;
+        font-size: 1.2rem;
         line-height: 1rem;
     }
     nav ul#menu {
@@ -379,7 +389,7 @@ footer {
             "menu"
 }
     nav, body[data-scroll] nav {
-        box-shadow: 20px 60px 60px -30px #000;
+        box-shadow: 0 40px 60px -40px #000;
     }
     nav a.logo {
         margin-top: 0;

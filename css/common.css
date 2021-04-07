@@ -24,16 +24,43 @@ main h1, main h2, main h3, main h4, main h5 {
     color: var(--brand-1);
 }
 button, input[type="button"] {
-	border: none;
-	border-radius: 0;
-	background: var(--brand-1);
+	background-color: var(--gray-4);
 	color: var(--white);
+    border-color: var(--gray-4);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
     cursor: pointer;
 	display: inline-block;
 	padding: 1em 1.5em;
 	text-transform: uppercase;
 	transition: var(--transition-default);
     outline: none;
+}
+button.primary, input.primary[type="button"] {
+    background-color: var(--brand-1);
+    border-color: var(--brand-1);
+}
+button.secondary, input.secondary[type="button"] {
+    background-color: transparent;
+    color: var(--brand-1);
+    border-color: var(--brand-1);
+}
+
+button:hover, input[type="button"]:hover {
+    background: var(--beige-1);
+    color: var(--white);
+    border-color: var(--beige-1);
+}
+button.secondary:hover, input.secondary[type="button"]:hover {
+    background: transparent;
+    color: var(--beige-1);
+    border-color: var(--beige-1);
+}
+form button {
+    float: right;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
 }
 h1, h2, h3, h4, h5, .title {
     font-family: 'Oswald', sans-serif;
@@ -61,8 +88,74 @@ h1 ~ h2 {
 h3 {
     font-size: 1rem;
 }
+blockquote {
+    position: relative;
+    margin: 1rem 0;
+    padding: 0 0.5rem;
+}
+blockquote::before, blockquote::after {
+    position: absolute;
+    display: block;
+    font-size: 2rem;
+    color: var(--beige-2);
+}
+blockquote::before {
+    content: '„';
+    left: -0.33rem;
+    top: -1rem;
+}
+blockquote::after {
+    content: '“';
+    bottom: -1rem;
+    right: -0.25rem;
+}
+blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    text-align: right;
+}
 section {
     overflow: auto;;
+}
+hr {
+    background-color: var(--beige-4);
+    border: none;
+    height: 1px;
+}
+fieldset {
+    margin: 0;
+    padding: 0.5rem 0;
+    border: none;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: minmax(min-content, 1rem) 1fr;
+    grid-gap: 0.5rem;
+}
+fieldset label {
+    padding: 0;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    line-height: 1.25rem;
+}
+fieldset input,
+fieldset select {
+    height: 2rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background: var(--white);
+    border: none;
+    transition: var(--transition-default);
+}
+fieldset input {
+    padding: 0.5rem;
+}
+fieldset select {
+    padding: 0.25rem;
+}
+fieldset input:focus,
+fieldset select:focus { 
+    outline: none;
+    border: none;
 }
 
 /* Structure */
@@ -108,15 +201,16 @@ body[data-scroll] header {
 }
 header a {
     display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    padding: 0.5rem 0.33rem;
+    padding: 0.33rem;
     transition: var(--transition-default);
 }
 header button#menu-toggle {
     padding: 0 0.75rem;
     background-color: var(--white);
     color: var(--brand-1);
+    border: none;
 }
 header button#menu-toggle .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
@@ -478,6 +572,14 @@ footer #links a {
     :root {
         --height-nav: 100px;
     }
+    fieldset {
+        grid-template-columns: minmax(min-content, 80px) 1fr;
+        grid-template-rows: auto;
+        grid-gap: 1rem;
+    }
+    fieldset label {
+        padding: 0.33rem 0;
+    }
     body {
         grid-template-columns: 250px 1fr;
         grid-template-rows: minmax(min-content, var(--height-header)) 1fr min-content min-content);
@@ -492,7 +594,7 @@ footer #links a {
         padding: 0 1rem;
     }
     header a {
-        padding: 0.5rem 0.75rem;
+        padding: 0.66rem;
     }
     header button#menu-toggle {
         display: none;

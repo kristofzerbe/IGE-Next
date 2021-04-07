@@ -14,14 +14,15 @@ function scrollDetect() {
 	window.addEventListener('scroll', throttle(handleScroll,10));
 
 	function handleScroll(e) {
-		if(window.scrollY > scrollY) {
-			document.body.setAttribute("data-scroll", "DOWN");
-		} else if (window.scrollY < scrollY){
-			document.body.setAttribute("data-scroll", "UP");
-		}
-		if (window.scrollY === 0){
+		if (window.scrollY <= 10){
 			document.body.removeAttribute("data-scroll");
-		}
+		} else {
+            if(window.scrollY > scrollY) {
+                document.body.setAttribute("data-scroll", "DOWN");
+            } else if (window.scrollY < scrollY){
+                document.body.setAttribute("data-scroll", "UP");
+            }
+        }
 		scrollY = window.scrollY;
 	}
 }
@@ -61,8 +62,6 @@ document.querySelectorAll("nav ul#menu li a").forEach(function(item) {
             } else {
                 list.dataset.menuOpen = entry.dataset.menuItem;
             }
-        } else {
-            console.log("TODO: Redirect to page " + item.hash.replace("#", ".."));
         }
     });
 });

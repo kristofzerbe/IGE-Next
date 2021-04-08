@@ -2,6 +2,9 @@
 :root {
     --brand-hr: hsl(229, 74%, 34%);
     --brand-ga: hsl(3, 90%, 24%);
+    --brand-gc: hsl(120, 100%, 21%);
+    --brand-tt: hsl(301, 100%, 21%);
+    --brand-rg: hsl(37, 100%, 22%);
 
     --beige-1: hsl(35, 43%, 44%);
     --beige-2: hsl(35, 43%, 56%);

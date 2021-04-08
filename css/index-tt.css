@@ -1,0 +1,41 @@
+@import url("common.css");
+
+/* Variables */
+:root {
+    --brand-1: hsl(301, 100%, 21%);
+    --brand-2: hsl(301, 100%, 39%);
+    --brand-3: hsl(301, 100%, 57%);
+    --brand-4: hsl(301, 100%, 75%);
+    --brand-5: hsl(301, 100%, 93%);
+}
+
+body {
+    background-image: url("../images/background-tt-768.jpg");
+}
+nav a.logo { 
+    background-image: url("../images/logo-violet-100.png");
+}
+
+@media (max-width: 767px) { /* SMALL ONLY */
+    body[data-scroll] nav a.logo {
+        background-image: url("../images/logo-violet-40.png");
+    }
+}
+@media (min-width: 768px) { /* MEDIUM */
+    body {
+        background-image: url("../images/background-tt-992.jpg");
+    }
+    nav a.logo { 
+        background-image: url("../images/logo-violet-120.png");
+    }
+}
+@media (min-width: 992px) { /* LARGE */
+    body {
+        background-image: url("../images/background-tt-1200.jpg");
+    }
+}
+@media (min-width: 1200px) { /* XLARGE */ 
+    body {
+        background-image: url("../images/background-tt-1600.jpg");
+    }
+}

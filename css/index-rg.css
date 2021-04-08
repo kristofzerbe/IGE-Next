@@ -1,0 +1,41 @@
+@import url("common.css");
+
+/* Variables */
+:root {
+    --brand-1: hsl(37, 100%, 22%);
+    --brand-2: hsl(37, 100%, 40%);
+    --brand-3: hsl(37, 100%, 58%);
+    --brand-4: hsl(37, 100%, 76%);
+    --brand-5: hsl(37, 100%, 94%);
+}
+
+body {
+    background-image: url("../images/background-rg-768.jpg");
+}
+nav a.logo { 
+    background-image: url("../images/logo-brown-100.png");
+}
+
+@media (max-width: 767px) { /* SMALL ONLY */
+    body[data-scroll] nav a.logo {
+        background-image: url("../images/logo-brown-40.png");
+    }
+}
+@media (min-width: 768px) { /* MEDIUM */
+    body {
+        background-image: url("../images/background-rg-992.jpg");
+    }
+    nav a.logo { 
+        background-image: url("../images/logo-brown-120.png");
+    }
+}
+@media (min-width: 992px) { /* LARGE */
+    body {
+        background-image: url("../images/background-rg-1200.jpg");
+    }
+}
+@media (min-width: 1200px) { /* XLARGE */ 
+    body {
+        background-image: url("../images/background-rg-1600.jpg");
+    }
+}

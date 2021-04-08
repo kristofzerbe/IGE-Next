@@ -365,6 +365,12 @@ nav ul#menu li ul {
     margin: 0;
     padding: 0;
 }
+nav ul#menu li:not(:last-child) ul:after {
+    content: "";
+    display: block;
+    height: 0.5rem;
+    background-color: var(--white);
+}
 nav ul#menu[data-menu-open="1"] li[data-menu-item="1"] ul,
 nav ul#menu[data-menu-open="2"] li[data-menu-item="2"] ul,
 nav ul#menu[data-menu-open="3"] li[data-menu-item="3"] ul,
@@ -388,6 +394,8 @@ nav ul#menu li ul li a:hover {
     color: var(--beige-1);
 }
 nav ul#menu li ul li a.academy {
+    background-repeat: no-repeat;
+    background-size: 18px;
     background-repeat: no-repeat;
     background-size: 18px;
     background-position: 18px 7px;

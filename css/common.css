@@ -588,7 +588,7 @@ footer #links a {
         margin-left: 0;
     }
 }
-@media (min-width: 768px) { /* MEDIUM */
+@media (min-width: 768px)  { /* MEDIUM */
     :root {
         --height-nav: 100px;
     }
@@ -712,7 +712,7 @@ footer #links a {
         left: 5%;
     }
 }
-/* Orientation Lock */
+/* Orientation Lock
 @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     html {
         transform: rotate(-90deg);
@@ -723,4 +723,4 @@ footer #links a {
         top: 100%;
         left: 0;
     }
-}
+} */

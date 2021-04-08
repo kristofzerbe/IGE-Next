@@ -589,7 +589,6 @@ footer #links a {
         overflow-y: visible;
         opacity: 1;
         transform: translateY(0);
-        border-top: 1px var(--beige-5) solid;
         padding-top: 1rem;
     }
     body[data-scroll] nav ul#menu {

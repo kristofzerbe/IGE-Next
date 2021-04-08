@@ -719,4 +719,8 @@ footer #links a {
         width: 250px;
         left: 5%;
     }
+    nav a.logo {
+        min-height: 150px;
+        background-size: 150px;
+    }
 }

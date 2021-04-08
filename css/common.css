@@ -312,6 +312,13 @@ nav ul#menu li {
     background-color: var(--white);
     transition: var(--transition-default);
 }
+nav ul#menu li.seperator { 
+    padding: 0 1rem;
+}
+nav ul#menu li.seperator hr { 
+    margin: 0;
+    background-image: linear-gradient(to right, var(--white), var(--beige-4), var(--white));
+}
 nav ul#menu[data-menu-open="1"] li[data-menu-item="1"] > a,
 nav ul#menu[data-menu-open="2"] li[data-menu-item="2"] > a,
 nav ul#menu[data-menu-open="3"] li[data-menu-item="3"] > a,

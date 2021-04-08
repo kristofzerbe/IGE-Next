@@ -44,4 +44,7 @@ nav a.logo {
     body {
         background-image: url("../images/background-gc-1600.jpg");
     }
+    nav a.logo {
+        background-image: url(../images/logo-green-150.png);
+    }
 }

@@ -8,36 +8,36 @@
     --brand-4: hsl(301, 100%, 75%);
     --brand-5: hsl(301, 100%, 93%);
 
-    --spare-1: hsl(120, 100%, 39%);
+    --spare-1: hsl(120, 100%, 34%);
 }
 
 body {
-    background-image: url("../images/background-tt-768.jpg");
+    background-image: url("../images/background/background-tt-768.jpg");
 }
 nav a.logo { 
-    background-image: url("../images/logo-violet-75.png");
+    background-image: url("../images/logo/logo-violet-75.png");
 }
 
 @media (max-width: 767px) { /* SMALL ONLY */
 }
 @media (min-width: 768px) { /* MEDIUM */
     body {
-        background-image: url("../images/background-tt-992.jpg");
+        background-image: url("../images/background/background-tt-992.jpg");
     }
     nav a.logo { 
-        background-image: url("../images/logo-violet-120.png");
+        background-image: url("../images/logo/logo-violet-120.png");
     }
 }
 @media (min-width: 992px) { /* LARGE */
     body {
-        background-image: url("../images/background-tt-1200.jpg");
+        background-image: url("../images/background/background-tt-1200.jpg");
     }
 }
 @media (min-width: 1200px) { /* XLARGE */ 
     body {
-        background-image: url("../images/background-tt-1600.jpg");
+        background-image: url("../images/background/background-tt-1600.jpg");
     }
     nav a.logo {
-        background-image: url(../images/logo-violet-150.png);
+        background-image: url(../images/logo/logo-violet-150.png);
     }
 }

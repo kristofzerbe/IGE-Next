@@ -415,16 +415,16 @@ nav ul#menu li ul li a.academy {
     padding-left: 2.75rem;
 }
 nav ul#menu li ul li a.academy.ga {
-    background-image: url("../images/logo-red-18.png");
+    background-image: url("../images/logo/logo-red-18.png");
 }
 nav ul#menu li ul li a.academy.gc {
-    background-image: url("../images/logo-green-18.png");
+    background-image: url("../images/logo/logo-green-18.png");
 }
 nav ul#menu li ul li a.academy.tt {
-    background-image: url("../images/logo-violet-18.png");
+    background-image: url("../images/logo/logo-violet-18.png");
 }
 nav ul#menu li ul li a.academy.rg {
-    background-image: url("../images/logo-brown-18.png");
+    background-image: url("../images/logo/logo-brown-18.png");
 }
 main {
     margin-top: calc(var(--height-header) + var(--height-nav) + 1rem);
@@ -460,6 +460,53 @@ main section:not(:first-child) {
 main section:last-child {
     margin-bottom: -1rem;
 }
+main .left {
+    float: left;
+    margin: 0 1rem 1rem 0;
+}
+main .center {
+    margin: 0 auto;
+}
+main .right {
+    float: right;
+    margin: 0 0 1rem 1rem;
+}
+main div.shadow-wrapper {
+    position: relative;
+}
+main div.shadow-wrapper.left,
+main div.shadow-wrapper.right,
+main div.shadow-wrapper.center {
+    margin-bottom: calc(1rem + 10px));
+}
+main div.shadow-wrapper.right {
+    margin-left: calc(1rem + 10px);
+    margin-right: 1rem;
+}
+main div.shadow-wrapper.left {
+    margin-left: 1rem;
+    margin-right: calc(1rem + 10px);
+}
+main div.shadow-wrapper img.drop-shadow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    margin: 0;
+    float: none;
+}
+main div.shadow-wrapper img.shadow {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    top: 15%;
+    z-index: 0;
+    filter: blur(10px);
+    opacity: 0.8;
+    margin: 0;
+    float: none;
+}
 aside {
     grid-area: aside;
     padding: 1rem 1rem 0 1rem;
@@ -477,6 +524,7 @@ aside section {
 aside section h3 {
     margin: 0;
     text-transform: uppercase;
+    color: var(--spare-1);
 }
 aside section a.more {
     float: right;
@@ -559,7 +607,7 @@ footer #links a {
         height: 0;
     }
     body[data-scroll] nav a.logo {
-        background-image: url("../images/logo-negative-32.png");
+        background-image: url("../images/logo/logo-negative-32.png");
         background-size: 32px;
         background-color: var(--brand-1);
         margin-top: calc(-1 * var(--height-nav));
@@ -692,6 +740,24 @@ footer #links a {
         margin-left: 0;
         margin-right: 1rem;
     }
+    main .left {
+        margin: 0 2rem 2rem 0;
+    }
+    main .right {
+        margin: 0 0 2rem 2rem;
+    }
+    main div.shadow-wrapper.left,
+    main div.shadow-wrapper.right,
+    main div.shadow-wrapper.center {
+        margin-bottom: calc(2rem + 10px);
+    }
+    main div.shadow-wrapper.right {
+        margin-left: calc(2rem + 10px);
+    }
+    main div.shadow-wrapper.left {
+        margin-right: calc(2rem + 10px);
+    }
+    
     aside {
         padding: 1rem 1rem 0 0;
     }

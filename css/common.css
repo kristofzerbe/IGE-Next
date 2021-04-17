@@ -2,8 +2,10 @@
 
 /* Variables */
 :root {
-    --height-header: 55px;
-    --height-nav: 80px;
+    --height-header: 45px;
+    --height-header-border: 12px;
+    --height-nav: 90px;
+    --height-logo: 75px;
 }
 
 /* Elements */
@@ -183,8 +185,8 @@ header {
     grid-area: header;
     height: var(--height-header);
     z-index: 1;
-    background-color: var(--white);
-    border-top: 1rem var(--brand-1) solid;
+    background-color: var(--brand-1);
+    border-top: var(--height-header-border) var(--spare-1) solid;
     padding: 0;
     position: fixed;
     box-sizing: border-box;
@@ -198,19 +200,21 @@ header {
     justify-content: flex-end;
 }
 body[data-scroll] header {
-    box-shadow: 0 15px 30px 0px #000;
+    box-shadow: 0 0 30px 0 #000;
 }
 header a {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--white);
     text-transform: uppercase;
     padding: 0.33rem;
     transition: var(--transition-default);
 }
 header button#menu-toggle {
     padding: 0 0.75rem;
-    background-color: var(--white);
-    color: var(--brand-1);
+    background-color: var(--brand-1);
+    color: var(--white);
     border: none;
 }
 header button#menu-toggle .screen-reader-text {
@@ -224,9 +228,9 @@ header button#menu-toggle .icon-menu-toggle {
 	position: relative;
     display: inline-block;
 	vertical-align: middle;
-    width: 1.5rem;
-	height: 1.5rem;
-    top: 0;
+    width: 1.3rem;
+    height: 1.3rem;
+    top: -1px;
 	fill: currentColor;
 }
 header button#menu-toggle .svg-menu-toggle .line {
@@ -268,20 +272,19 @@ nav {
 }
 nav a.logo {
     grid-area: logo;
-    margin-top: -30px;
-    width: 125px;
-    height: 100px;
+    display: block;
     z-index: 1;
-    background-size: 100px;
+    width: var(--height-nav);
+    min-height: var(--height-nav);
+    background-size: var(--height-logo);
     background-repeat: no-repeat;
-    background-position: 50% 0;
-    /* background-color: var(--white); */
+    background-position: 25% 50%;
 }
 nav strong.title {
     grid-area: title;
     z-index: 1;
+    min-height: var(--height-nav);
     color: var(--brand-1);
-    background-color: var(--white);
     text-align: left;
     text-transform: uppercase;
     font-size: 16px;
@@ -305,7 +308,7 @@ nav ul#menu {
 nav ul#menu:after {
     content: "";
     display: block;
-    height: 1rem;
+    height: 0;
     background-color: var(--white);
 }
 nav ul#menu li {
@@ -349,7 +352,7 @@ nav ul#menu li:hover {
     cursor: pointer;
 }
 nav ul#menu li a {
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1rem;
     display: block;
     text-decoration: none;
     transition: var(--transition-default);
@@ -410,16 +413,16 @@ nav ul#menu li ul li a.academy {
     padding-left: 2.75rem;
 }
 nav ul#menu li ul li a.academy.ga {
-    background-image: url("../images/logo-red-40.png");
+    background-image: url("../images/logo-red-18.png");
 }
 nav ul#menu li ul li a.academy.gc {
-    background-image: url("../images/logo-green-40.png");
+    background-image: url("../images/logo-green-18.png");
 }
 nav ul#menu li ul li a.academy.tt {
-    background-image: url("../images/logo-violet-40.png");
+    background-image: url("../images/logo-violet-18.png");
 }
 nav ul#menu li ul li a.academy.rg {
-    background-image: url("../images/logo-brown-40.png");
+    background-image: url("../images/logo-brown-18.png");
 }
 main {
     margin-top: calc(var(--height-header) + var(--height-nav) + 1rem);
@@ -535,46 +538,57 @@ footer #links a {
 @media (max-width: 767px) { /* SMALL ONLY */
     body[data-scroll] {
         --height-header: 40px;
-        --height-nav: 20px;
+        --height-nav: 40px;
+        --height-logo: 40px;
     }
     body[data-scroll] header {
         border-top-width: 0;
-        border-left: 1rem var(--brand-1) solid;
+        border-left: 1rem var(--spare-1) solid;
 
     }
     body[data-scroll] header a {
         display: none;
     }
     body[data-scroll] header #menu-toggle {
-        margin-top: 15px;
+        margin-top: 3px;
     }
     body[data-scroll] nav {
-        border-left: 1rem var(--brand-1) solid;
+        border-left: 1rem var(--spare-1) solid;
+        height: 0;
     }
     body[data-scroll] nav a.logo {
-        width: 60px;
-        height: 40px;
-        background-size: 40px;
+        background-image: url("../images/logo-negative-32.png");
+        background-size: 32px;
+        background-color: var(--brand-1);
+        margin-top: calc(-1 * var(--height-nav));
     }
     nav strong.title {
         margin-right: 0;
-        font-size: 1.6rem;
-        line-height: 1.8rem;
-        align-self: center;
+        font-size: 1.5rem;
+        line-height: 1.6rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
     body[data-scroll] nav strong.title {
-        margin-top: -2rem;
-        margin-right: 4rem;
-        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 0;
+        margin-right: 3rem;
+        font-size: 1rem;
         line-height: 1rem;
+        background-color: var(--brand-1);
+        color: var(--white);
+        margin-top: calc(-1 * var(--height-nav));
     }
     nav strong.title.academy::before {
        font-size: 1.2rem;
+       line-height: 1.5rem;
     }
     body[data-scroll] nav strong.title.academy::before {
-        font-size: 1rem;
-        line-height: 2rem;
-        margin-top: -0.5rem;
+        font-size: 0.75rem;
+        line-height: 1rem;
     }
     nav ul#menu {
         overflow-y: hidden;
@@ -589,15 +603,17 @@ footer #links a {
         overflow-y: visible;
         opacity: 1;
         transform: translateY(0);
-        padding-top: 1rem;
     }
     body[data-scroll] nav ul#menu {
         margin-left: 0;
+        margin-top: 0;
     }
 }
 @media (min-width: 768px)  { /* MEDIUM */
     :root {
+        --height-header: 55px;
         --height-nav: 100px;
+        --height-logo: 120px;
     }
     fieldset {
         grid-template-columns: minmax(min-content, 80px) 1fr;
@@ -635,7 +651,6 @@ footer #links a {
         left: 2%;
         width: 200px;
         height: auto;
-        margin: -20px 0 0 0;
         grid-template-columns: 1fr;
         grid-template-rows: min-content min-content 1fr;
         grid-template-areas:
@@ -648,19 +663,27 @@ footer #links a {
     }
     nav a.logo {
         margin-top: 0;
-        min-height: 120px;
         width: 100%;
-        background-size: 120px;
+        min-height: calc(var(--height-logo) + 1rem);
         background-color: var(--white);
         padding-bottom: 0.5rem;
+        background-position: 50% 75%;
     }
     nav strong.title {
         text-align: center;
         padding-bottom: 1.5rem;
+        min-height: 0;
+        background-color: var(--white);
     }
     nav ul#menu {
         margin: 0;
         opacity: 1;
+    }
+    nav ul#menu:after {
+        height: 0.75rem;
+    }
+    nav ul#menu li a {
+        padding: 0.5rem 1.5rem;
     }
     main {
         margin-top: var(--height-header);
@@ -710,6 +733,9 @@ footer #links a {
     }
 }
 @media (min-width: 1200px) { /* XLARGE */
+    :root {
+        --height-logo: 150px;
+    }
     body {
         grid-template-columns: minmax(min-content, 30%) 1fr minmax(min-content, 250px);
 

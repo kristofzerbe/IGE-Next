@@ -1,4 +1,12 @@
 //-------------------------------------------------------------------------
+// HELPER...
+function createElementFromHtml(html) {
+  //> https://stackoverflow.com/questions/494143/creating-a-new-dom-element-from-an-html-string-using-built-in-dom-methods-or-pro
+  let e = document.createElement("template");
+  e.innerHTML = html.trim();
+  return e.content.firstChild;
+}
+//-------------------------------------------------------------------------
 // SCROLL
 function throttle(fn, wait) {
   var time = Date.now();
@@ -65,3 +73,28 @@ document.querySelectorAll("nav ul#menu li a").forEach(function (item) {
     }
   });
 });
+//-------------------------------------------------------------------------
+// DROP-SHADOW IMAGES
+document.querySelectorAll("img.drop-shadow").forEach(function(item) {
+  // const widthFactor = 0.9;
+  // const shiftTopFactor = 0.15;
+  // const shiftLeftFactor = (1 - widthFactor) / 2;
+  
+  let wrapper = createElementFromHtml('<div class="shadow-wrapper"></div>');
+
+  item.classList.forEach(function(c) {
+    if (c != "drop-shadow") wrapper.classList.add(c);
+  });
+  wrapper.style.width = item.clientWidth + "px";
+  wrapper.style.height = item.clientHeight + "px";
+
+  wrapper.insertAdjacentHTML("beforeend", item.outerHTML);
+
+  let shadow = item.cloneNode();
+  shadow.classList.remove("drop-shadow");
+  shadow.classList.add("shadow");
+  wrapper.insertAdjacentHTML("beforeend", shadow.outerHTML);
+
+  item.outerHTML = wrapper.outerHTML;
+});
+

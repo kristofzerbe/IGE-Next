@@ -12,32 +12,32 @@
 }
 
 body {
-    background-image: url("../images/background-hr-768.jpg");
+    background-image: url("../images/background/background-hr-768.jpg");
 }
 nav a.logo { 
-    background-image: url("../images/logo-blue-75.png");
+    background-image: url("../images/logo/logo-blue-75.png");
 }
 
 @media (max-width: 767px) { /* SMALL ONLY */
 }
 @media (min-width: 768px) { /* MEDIUM */
     body {
-        background-image: url("../images/background-hr-992.jpg");
+        background-image: url("../images/background/background-hr-992.jpg");
     }
     nav a.logo { 
-        background-image: url("../images/logo-blue-120.png");
+        background-image: url("../images/logo/logo-blue-120.png");
     }
 }
 @media (min-width: 992px) { /* LARGE */
     body {
-        background-image: url("../images/background-hr-1200.jpg");
+        background-image: url("../images/background/background-hr-1200.jpg");
     }
 }
 @media (min-width: 1200px) { /* XLARGE */ 
     body {
-        background-image: url("../images/background-hr-1600.jpg");
+        background-image: url("../images/background/background-hr-1600.jpg");
     }
     nav a.logo {
-        background-image: url(../images/logo-blue-150.png);
+        background-image: url(../images/logo/logo-blue-150.png);
     }
 }

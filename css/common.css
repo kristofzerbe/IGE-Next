@@ -63,7 +63,7 @@ form button {
     margin-left: 1rem;
 }
 h1, h2, h3, h4, h5, .title {
-    font-family: 'Signika Negative', sans-serif;
+    font-family: 'Roboto Slab', sans-serif;
     font-weight: 600;
 }
 h1, .title {
@@ -73,6 +73,7 @@ h1 {
     font-size: 1.5rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    letter-spacing: 1px;
 }
 h2 {
     font-size: 1.3rem;
@@ -284,7 +285,7 @@ nav strong.title {
     background-color: var(--white);
     text-align: left;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 1.2rem;
     line-height: 1.5rem;
     letter-spacing: 1px;
     transition: var(--transition-default);
@@ -292,7 +293,8 @@ nav strong.title {
 nav strong.title.academy::before {
     content: "IGE-Akademie";
     display: block;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
 }
 nav ul#menu {
     grid-area: menu;
@@ -493,7 +495,7 @@ footer * {
     color: var(--white);
     font-size: 0.8rem;
     line-height: 1.2rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 footer .logo {
     grid-area: logo;
@@ -558,8 +560,8 @@ footer #links a {
     }
     nav strong.title {
         margin-right: 0;
-        font-size: 1.6rem;
-        line-height: 1.8rem;
+        font-size: 1.3rem;
+        line-height: 1.4rem;
         align-self: center;
     }
     body[data-scroll] nav strong.title {
@@ -569,7 +571,7 @@ footer #links a {
         line-height: 1rem;
     }
     nav strong.title.academy::before {
-       font-size: 1.2rem;
+       font-size: 0.9rem;
     }
     body[data-scroll] nav strong.title.academy::before {
         font-size: 1rem;
